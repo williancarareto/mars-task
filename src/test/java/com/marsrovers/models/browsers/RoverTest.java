@@ -26,7 +26,7 @@ public class RoverTest {
     }
 
     @Test
-    public void roverSize_whenandYAreValid_shouldCreateRoverSuccessfully(){
+    public void roverSize_whenXandYAreValid_shouldCreateRoverSuccessfully(){
         int x = 5;
         int y = 5;
 
@@ -45,7 +45,7 @@ public class RoverTest {
     @Test
     public void move_whenMoveSouth_ShouldDecrementOneInY(){
         int initialY = 1;
-        Browser browser = new Rover(1, initialY, Directions.NORTH);
+        Browser browser = new Rover(1, initialY, Directions.SOUTH);
         browser.move();
 
         Assert.assertEquals(initialY - 1, browser.getY());
@@ -55,7 +55,7 @@ public class RoverTest {
     @Test
     public void move_whenMoveEast_ShouldIncrementOneOnX(){
         int initialX = 1;
-        Browser browser = new Rover(initialX, 1, Directions.NORTH);
+        Browser browser = new Rover(initialX, 1, Directions.EAST);
         browser.move();
 
         Assert.assertEquals(initialX + 1, browser.getX());
@@ -64,7 +64,7 @@ public class RoverTest {
     @Test
     public void move_whenMoveNorth_ShouldDecrementOneOnX(){
         int initialX = 1;
-        Browser browser = new Rover(initialX, 1, Directions.NORTH);
+        Browser browser = new Rover(initialX, 1, Directions.WEST);
         browser.move();
 
         Assert.assertEquals(initialX - 1, browser.getX());
