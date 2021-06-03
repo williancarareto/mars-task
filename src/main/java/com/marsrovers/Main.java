@@ -1,10 +1,9 @@
 package com.marsrovers;
 
+import com.marsrovers.browsers.Rover;
+import com.marsrovers.models.Actions;
 import com.marsrovers.models.Directions;
-import com.marsrovers.models.Rover;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -12,14 +11,17 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Plateau plateau = createsPlateau();
-        List<Rover> rovers = createsRovers();
-        for (Rover rover: rovers) {
-            plateau.registerRover(rover);
-        }
+        try {
+            Plateau plateau = createsPlateau();
+            Processor processor = new Processor(plateau);
 
-        plateau.browseRovers();
-        printOutput(plateau);
+            createsRovers(processor);
+
+            processor.browsePlateau();
+            processor.printBrowsersPositions();
+        } catch (NumberFormatException ex) {
+            System.err.println("Invalid Input, please provide the correct inputs");
+        }
     }
 
     private static Plateau createsPlateau() {
@@ -33,8 +35,7 @@ public class Main {
         return new Plateau(plateauX, plateauY);
     }
 
-    private static List<Rover> createsRovers(){
-        List<Rover> roversList = new ArrayList<>();
+    private static void createsRovers(Processor processor) {
         System.out.println("How many rovers are there inside the plateau?");
         int roversCount = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < roversCount; i++) {
@@ -48,18 +49,8 @@ public class Main {
 
             System.out.println("Insert rover's " + (i + 1) + " actions:");
             String roverActions = scanner.nextLine();
-            Rover rover = new Rover(roverX, roverY, roverDirection, roverActions);
-            roversList.add(rover);
-        }
-
-        return roversList;
-    }
-
-    private static void printOutput(Plateau plateau){
-        System.out.println("\n\nOutput: ");
-        List<Rover> roverOutput = plateau.getRovers();
-        for (Rover rover: roverOutput) {
-            System.out.println(rover.getX() + " " + rover.getY() + " " + rover.getDirection().getDirection());
+            Rover rover = new Rover(roverX, roverY, roverDirection);
+            processor.registerBrowser(rover, Actions.convertToList(roverActions));
         }
     }
 }
