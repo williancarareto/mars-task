@@ -1,17 +1,17 @@
-package com.marsrovers.models;
+package com.marsrovers.browsers;
 
 import com.marsrovers.exceptions.InvalidCoordinatesException;
+import com.marsrovers.models.Directions;
 
-import java.util.List;
 
-public class Rover {
+
+public class Rover implements Browser {
 
     private int x;
     private int y;
     private Directions direction;
-    private List<Actions> actions;
 
-    public Rover(int x, int y, Directions direction, String actions) {
+    public Rover(int x, int y, Directions direction) {
         if (!isCoordinatesValid(x, y)) {
             throw new InvalidCoordinatesException("Invalid position on x: " + x + " and y: " + y);
         }
@@ -19,35 +19,36 @@ public class Rover {
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.actions = Actions.convertToList(actions);
+
     }
 
     public int getX() {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
+    @Override
     public Directions getDirection() {
         return direction;
     }
 
-    public void setDirection(Directions direction) {
-        this.direction = direction;
+    @Override
+    public void move(){
+
     }
 
-    public List<Actions> getActions() {
-        return actions;
+    @Override
+    public void rotateLeft(){
+        direction = direction.getLeft();
+    }
+
+    @Override
+    public void rotateRight() {
+        direction = direction.getRight();
+
     }
 
     private boolean isCoordinatesValid(int x, int y) {

@@ -7,7 +7,7 @@ public interface Browser {
     int getX();
     int getY();
 
-    Directions getDirections();
+    Directions getDirection();
 
     void move();
 
