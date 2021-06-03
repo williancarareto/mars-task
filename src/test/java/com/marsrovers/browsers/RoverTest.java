@@ -1,7 +1,5 @@
-package com.marsrovers.models.browsers;
+package com.marsrovers.browsers;
 
-import com.marsrovers.browsers.Browser;
-import com.marsrovers.browsers.Rover;
 import com.marsrovers.exceptions.InvalidCoordinatesException;
 import com.marsrovers.models.Directions;
 import org.junit.Assert;
