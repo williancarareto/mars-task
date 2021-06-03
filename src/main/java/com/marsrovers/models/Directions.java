@@ -6,35 +6,35 @@ public enum Directions {
 
     EAST('E') {
         public Directions getLeft() {
-            return null;
+            return Directions.NORTH;
         }
 
         public Directions getRight() {
-            return null;
+            return Directions.SOUTH;
         }
     }, WEST('W') {
         public Directions getLeft() {
-            return null;
+            return Directions.SOUTH;
         }
 
         public Directions getRight() {
-            return null;
+            return Directions.NORTH;
         }
     }, SOUTH('S') {
         public Directions getLeft() {
-            return null;
+            return Directions.EAST;
         }
 
         public Directions getRight() {
-            return null;
+            return Directions.WEST;
         }
     }, NORTH('N') {
         public Directions getLeft() {
-            return null;
+            return Directions.WEST;
         }
 
         public Directions getRight() {
-            return null;
+            return Directions.EAST;
         }
     };
 
