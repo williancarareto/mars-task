@@ -1,4 +1,5 @@
 import com.marsrovers.exceptions.InvalidDirectionException;
+import com.marsrovers.models.Directions;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -52,41 +53,56 @@ public class DirectionsTest {
 
     @Test
     public void directions_whenGetLeftFromNorth_ReturnsWest(){
+        Diretions left = Directions.NORTH.getLeft();
+        Assert.assertEquals(Directions.WEST, left);
 
     }
 
     @Test
     public void directions_whenGetLeftFromWest_ReturnsSouth(){
-
+        Diretions left = Directions.WEST.getLeft();
+        Assert.assertEquals(Directions.SOUTH, left);
     }
 
     @Test
     public void directions_whenGetLeftFromSouth_ReturnsEast(){
+        Diretions left = Directions.SOUTH.getLeft();
+        Assert.assertEquals(Directions.EAST, left);
 
     }
 
     @Test
     public void directions_whenGetLeftFromEast_ReturnsNorth(){
+        Diretions left = Directions.EAST.getLeft();
+        Assert.assertEquals(Directions.NORTH, left);
 
     }
 
     @Test
     public void directions_whenGetRightFromNorth_ReturnsEast(){
+        Diretions left = Directions.NORTH.getLeft();
+        Assert.assertEquals(Directions.EAST, left);
 
     }
 
     @Test
     public void directions_whenGetRightFromEast_ReturnsSouth(){
+        Diretions left = Directions.EAST.getLeft();
+        Assert.assertEquals(Directions.SOUTH, left);
 
     }
 
     @Test
     public void directions_whenGetRightFromSouth_ReturnsWest(){
+        Diretions left = Directions.SOUTH.getLeft();
+        Assert.assertEquals(Directions.EAST, left);
 
     }
 
     @Test
     public void directions_whenGetRightFromWest_ReturnsNorth() {
+        Diretions left = Directions.WEST.getLeft();
+        Assert.assertEquals(Directions.NORTH, left);
 
     }
 
