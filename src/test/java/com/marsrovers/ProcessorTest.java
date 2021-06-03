@@ -35,12 +35,13 @@ public class ProcessorTest {
     public void browsePlateau_whenItHasOneBrowser_browseThroughThePlateauAndReturnsTheFinalPosition() {
         int plateauX = 5;
         int plateauY = 5;
+
         int browserInitialX = 1;
         int browserInitialY = 2;
 
         Processor processor = new Processor(new Plateau(plateauX, plateauY));
         Browser browser = new Rover(browserInitialX, browserInitialY, Directions.NORTH);
-        processor.registerBrowser(browser, new ArrayList<>());
+        processor.registerBrowser(browser, Actions.convertToList("LMLMLMLMM"));
 
         int expectedFinalX = 1;
         int expectedFinalY = 3;

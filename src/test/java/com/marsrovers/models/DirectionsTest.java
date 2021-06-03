@@ -97,7 +97,7 @@ public class DirectionsTest {
     @Test
     public void directions_whenGetRightFromSouth_ReturnsWest(){
         Directions right = Directions.SOUTH.getRight();
-        Assert.assertEquals(Directions.EAST, right);
+        Assert.assertEquals(Directions.WEST, right);
 
     }
 
