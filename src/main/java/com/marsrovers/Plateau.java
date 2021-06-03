@@ -1,17 +1,10 @@
 package com.marsrovers;
 
 import com.marsrovers.browsers.Browser;
-import com.marsrovers.exceptions.CollisionException;
 import com.marsrovers.exceptions.InvalidCoordinatesException;
-import com.marsrovers.exceptions.MovedOutOfPlateauException;
-import com.marsrovers.exceptions.OutOfPlateauException;
 import com.marsrovers.models.Actions;
-import com.marsrovers.models.Directions;
-import com.marsrovers.models.Rover;
 
-import javax.sql.rowset.BaseRowSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Plateau {
 
@@ -19,7 +12,6 @@ public class Plateau {
     private int y;
     private List<Browser> browsers;
     private List<List<Actions>> actions;
-
 
     public Plateau(int x, int y) {
         if (!isCoordinatesValid(x, y)) {
@@ -31,20 +23,21 @@ public class Plateau {
         this.browsers = new ArrayList<>();
         this.actions = new ArrayList<>();
     }
-    public int getX(){
+
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public void addBrowser(Browser browser, List<Actions> actionsList){
+    public void addBrowser(Browser browser, List<Actions> actionsList) {
         browsers.add(browser);
         actions.add(actionsList);
     }
 
-    public List<Browser> getBrowsers(){
+    public List<Browser> getBrowsers() {
         return browsers;
     }
 
@@ -52,7 +45,7 @@ public class Plateau {
         return actions;
     }
 
-    private boolean isCoordinatesValid(int x, int y){
+    private boolean isCoordinatesValid(int x, int y) {
         return x > 0 && y > 0;
     }
 }
